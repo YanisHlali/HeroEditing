@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+}
+
+header {
+  background-color: #202020;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  max-height: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 250px;
+  width: 400px;
+  height: 50px;
+}
+
+nav a {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-bottom: 2px;
+  border-bottom: 2px solid #202020;
+}
+
+.items:hover {
+  border-bottom: 2px solid red;
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+.mobile-menu {
+  display: none;
+  background-color: #202020;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 2;
+}
+
+.mobile-menu a {
+  display: block;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto Condensed", sans-serif;
+  margin-bottom: 20px;
+}
+
+.mobile-menu a:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-menu-open {
+  position: fixed;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+}
+
+body.mobile-menu-open > html {
+  margin-top: 80px;
+}
+
+html.mobile-menu-open {
+  margin-top: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: block;
+  }
+  nav {
+    display: none;
+  }
+  .hamburger-menu {
+    display: flex;
+  }
+  .container {
+    justify-content: left;
+    position: relative;
+  }
+  img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

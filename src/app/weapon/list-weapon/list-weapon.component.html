@@ -1,0 +1,59 @@
+<h2 class="title-page">Weapons</h2>
+
+<div>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['attack'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('attack')"
+  >
+    Par attaque
+  </button>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['damage'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('damage')"
+  >
+    Par dégâts
+  </button>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['dodge'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('dodge')"
+  >
+    Par esquive
+  </button>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['health'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('health')"
+  >
+    Par santé
+  </button>
+  <button class="create-weapon" (click)="createWeapon()">Créer une arme</button>
+</div>
+
+<div class="cards-weapons">
+  <div *ngFor="let weapon of weapons" class="card-weapons">
+    <div class="card-weapons__image">
+      <img src="{{ weapon.image }}" alt="{{ weapon.name }}" />
+    </div>
+    <div class="card-weapons__content">
+      <h3>
+        <a [routerLink]="['/weapon/detail', weapon.id]">{{ weapon.name }}</a>
+      </h3>
+      <p>Attaque : {{ weapon.attack }}</p>
+      <p>Dégâts : {{ weapon.damage }}</p>
+      <p>Esquive : {{ weapon.dodge }}</p>
+      <p>Santé : {{ weapon.health }}</p>
+    </div>
+  </div>
+  <div class="modal" *ngIf="showSuccessModal">
+    <div class="modal-content">
+      <h2>{{ successModalMessage }}</h2>
+    </div>
+  </div>
+</div>

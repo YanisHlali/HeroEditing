@@ -1,0 +1,61 @@
+<!-- list-hero.component.html -->
+<h2 class="title-page">My Heroes</h2>
+
+<div>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['attack'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('attack')"
+  >
+    Par attaque
+  </button>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['damage'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('damage')"
+  >
+    Par dégâts
+  </button>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['dodge'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('dodge')"
+  >
+    Par esquive
+  </button>
+  <button
+    [ngStyle]="{
+      'background-color': filterStates['health'] ? 'black' : '#ED1D24'
+    }"
+    (click)="toggleFilter('health')"
+  >
+    Par santé
+  </button>
+  <button class="create-hero" (click)="createHero()">Créer un héro</button>
+</div>
+
+<div class="cards-heroes">
+  <div *ngFor="let hero of heroes" class="card-heroes">
+    <div class="card-heroes__image">
+      <img src="{{ hero.image }}" alt="{{ hero.name }}" />
+    </div>
+    <div class="card-heroes__content">
+      <h3>
+        <a [routerLink]="['/hero/detail', hero.id]">{{ hero.name }}</a>
+      </h3>
+      <p>Attaque : {{ hero.attack }}</p>
+      <p>Dégâts : {{ hero.damage }}</p>
+      <p>Esquive : {{ hero.dodge }}</p>
+      <p>Santé : {{ hero.health }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="showSuccessModal">
+  <div class="modal-content">
+    <h2>{{ successModalMessage }}</h2>
+  </div>
+</div>

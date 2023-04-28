@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <img src="../assets/image.png" alt="Marvel Logo" />
+    <nav>
+      <div class="items">
+        <a routerLink="list/hero">Héros</a>
+      </div>
+      <div class="items">
+        <a routerLink="/list/weapon">Armes</a>
+      </div>
+    </nav>
+    <div class="hamburger-menu" (click)="toggleMobileMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <div
+      class="mobile-menu"
+      [ngStyle]="{ display: mobileMenuOpen ? 'block' : 'none' }"
+    >
+      <a routerLink="list/hero">Héros</a>
+      <a routerLink="/list/weapon">Armes</a>
+    </div>
+  </div>
+</header>
+
+<div class="app">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,106 @@
+<div class="card-heroes hero-detail" *ngIf="hero">
+  <div class="card-heroes__image hero">
+    <div class="card-heroes__content hero-name">{{ hero.name }}</div>
+    <img src="{{ hero.image }}" alt="{{ hero.name }}" />
+  </div>
+  <div class="card-heroes__content stats">
+    <p>
+      Vous devez repartir 40 points dans les caractéristiques de votre héro. Il
+      vous reste {{ remainingPoints }} points.
+    </p>
+    <br />
+    <label for="hero-name">Nom :</label>
+    <input
+      class="stats-field"
+      id="hero-name"
+      [(ngModel)]="hero.name"
+      (change)="saveName()"
+      autocomplete="off"
+    />
+
+    <br /><br />
+
+    <label for="hero-attack">Attaque :</label>
+    <input
+      class="stats-field"
+      type="number"
+      [(ngModel)]="hero.attack"
+      (change)="setRemainingPoints()"
+      id="hero-attack"
+      autocomplete="off"
+    />
+
+    <br /><br />
+
+    <label for="hero-damage">Dégâts :</label>
+    <input
+      class="stats-field"
+      type="number"
+      [(ngModel)]="hero.damage"
+      (change)="setRemainingPoints()"
+      id="hero-damage"
+      autocomplete="off"
+    />
+
+    <br /><br />
+
+    <label for="hero-dodge">Esquive :</label>
+    <input
+      class="stats-field"
+      type="number"
+      [(ngModel)]="hero.dodge"
+      (change)="setRemainingPoints()"
+      id="hero-dodge"
+      autocomplete="off"
+    />
+
+    <br /><br />
+
+    <label for="hero-health">Santé :</label>
+    <input
+      type="number"
+      [(ngModel)]="hero.health"
+      (change)="setRemainingPoints()"
+      id="hero-health"
+      autocomplete="off"
+    />
+
+    <br /><br />
+
+    <label for="hero-image">URL de l'image :</label>
+    <input id="hero-image" [(ngModel)]="hero.image" (change)="saveImage()" />
+
+    <br /><br />
+
+    <div>
+      <label for="hero-weapon">Arme :</label>
+      <select
+        [(ngModel)]="weapon"
+        (change)="saveWeapon()"
+        [compareWith]="compareWeapons"
+      >
+        <option *ngFor="let weapon of weapons" [ngValue]="weapon">
+          {{ weapon.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="buttons">
+      <button type="button" (click)="saveStats()">Sauvegarder</button>
+      <button type="button" (click)="deleteHero()">Supprimer le héro</button>
+      <button type="button" (click)="deleteWeapon()">Supprimer l'arme</button>
+    </div>
+
+    <div class="modal" *ngIf="showSuccessModal">
+      <div class="modal-content-success">
+        <h2>{{ successModalMessage }}</h2>
+      </div>
+    </div>
+
+    <div class="modal" *ngIf="showErrorModal">
+      <div class="modal-content-error">
+        <h2>{{ errorModalMessage }}</h2>
+      </div>
+    </div>
+  </div>
+</div>

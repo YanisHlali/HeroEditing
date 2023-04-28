@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "test-ed9ee": {
+      "hosting": {
+        "angular-tour-of-heroes": [
+          "test-ed9ee"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "test-ed9ee"
+  }
+}

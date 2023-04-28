@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+
+.card-heroes {
+  position: relative;
+  top: 100px;
+  width: 80%;
+  height: 700px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.card-heroes__image {
+  height: auto;
+  position: relative;
+}
+
+.card-heroes__image img {
+  width: 300px;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.hero-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.stats {
+  width: 60%;
+  padding: 20px;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+label {
+  display: inline-block;
+  font-size: 1.2rem;
+  width: 250px;
+  text-align: right;
+  margin-right: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+
+input,
+select {
+  box-sizing: border-box;
+  height: 40px;
+}
+
+input {
+  background-color: lightgrey;
+  padding: 5px;
+  margin-bottom: 10px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-bottom: 3px solid black;
+  font-size: 1.2rem;
+  width: 50%;
+}
+
+select {
+  background-color: lightgrey;
+  padding: 5px;
+  margin-bottom: 10px;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  width: 50%;
+  border: none;
+  border-bottom: 3px solid black;
+}
+
+.heroes {
+  width: 200px;
+  font-size: 18px;
+  border: 2px solid blue;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  background-color: #ed1d24;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 9999;
+  transition: right 0.1s ease-out;
+}
+
+.modal-content-success {
+  background-color: lightgreen;
+  color: black;
+  font-size: 14px;
+  border-bottom: 6px solid black;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: fadeInOut 1.7s;
+}
+
+.modal-content-error {
+  background-color: lightcoral;
+  color: white;
+  font-size: 14px;
+  border-bottom: 6px solid black;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: fadeInOut 1.7s;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  * {
+    box-sizing: border-box;
+  }
+  .card-heroes {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: none;
+  }
+  .card-heroes__image {
+    width: 100%;
+    height: 50%;
+  }
+  .card-heroes__image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .stats {
+    width: 100%;
+    height: 50%;
+    padding: 20px;
+  }
+  p {
+    margin-top: 35px;
+  }
+  .stat {
+    flex-direction: column;
+  }
+  label {
+    text-align: left;
+  }
+  input {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+  .buttons {
+    display: block;
+    margin: 0 auto;
+  }
+  button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+}

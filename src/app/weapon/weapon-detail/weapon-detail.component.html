@@ -1,0 +1,105 @@
+<div class="card-heroes weapon-detail" *ngIf="weapon">
+  <div class="card-heroes__image weapon">
+    <div class="weapon-name">{{ weapon.name }}</div>
+    <img src="{{ weapon.image }}" alt="{{ weapon.name }}" />
+  </div>
+  <div class="stats">
+    <p>
+      Vous devez répartir les caractéristiques de votre arme de manière à ce que
+      la somme totale soit égale à 0. Chaque caractéristique doit être comprise
+      entre -5 et 5 (inclus)
+    </p>
+    <p>Somme total des points : {{ remainingPoints }}</p>
+    <br />
+    <div class="stat">
+      <label for="weapon-name">Nom :</label>
+      <input
+        class="stats-field"
+        id="weapon-name"
+        [(ngModel)]="weapon.name"
+        (change)="saveName()"
+      />
+    </div>
+
+    <br />
+
+    <div class="stat">
+      <label for="weapon-attack">Attaque :</label>
+      <input
+        class="stats-field"
+        type="number"
+        [(ngModel)]="weapon.attack"
+        (change)="setRemainingPoints()"
+        id="weapon-attack"
+      />
+    </div>
+
+    <br />
+
+    <div class="stat">
+      <label for="weapon-damage">Dégâts :</label>
+      <input
+        class="stats-field"
+        type="number"
+        [(ngModel)]="weapon.damage"
+        (change)="setRemainingPoints()"
+        id="weapon-damage"
+      />
+    </div>
+
+    <br />
+
+    <div class="stat">
+      <label for="weapon-dodge">Esquive :</label>
+      <input
+        class="stats-field"
+        type="number"
+        [(ngModel)]="weapon.dodge"
+        (change)="setRemainingPoints()"
+        id="weapon-dodge"
+      />
+    </div>
+
+    <br />
+
+    <div class="stat">
+      <label for="weapon-health">Santé :</label>
+      <input
+        type="number"
+        [(ngModel)]="weapon.health"
+        (change)="setRemainingPoints()"
+        id="weapon-health"
+      />
+    </div>
+
+    <br />
+
+    <div class="stat">
+      <label for="weapon-image">URL de l'image :</label>
+      <input
+        id="weapon-image"
+        [(ngModel)]="weapon.image"
+        (change)="saveImage()"
+      />
+    </div>
+
+    <br />
+
+    <div class="buttons">
+      <button type="button" (click)="saveStats()">Sauvegarder</button>
+      <button type="button" (click)="deleteWeapon()">Supprimer</button>
+    </div>
+
+    <div class="modal" *ngIf="showSuccessModal">
+      <div class="modal-content-success">
+        <h2>{{ successModalMessage }}</h2>
+      </div>
+    </div>
+
+    <div class="modal" *ngIf="showErrorModal">
+      <div class="modal-content-error">
+        <h2>{{ errorModalMessage }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
